@@ -11,8 +11,8 @@ Please read these guidelines before contributing to this project:
 
 ## <a name="question"></a> Got a Question or Problem?
 
-If you have questions about how to use UCTask.Worker, please read the
-[UCTask.Worker documentation][documentation] or ask on [Stack Overflow][stackoverflow].
+If you have questions about how to use SimpleSocket, please read the
+[SimpleSocket documentation][documentation] or ask on [Stack Overflow][stackoverflow].
 
 GitHub issues are only for [reporting bugs](#issue) and [feature requests](#feature), not
 questions or help.
@@ -40,7 +40,7 @@ The more information you include about the issue, the more likely it is to be fi
 You can request a new feature by submitting an issue to the [GitHub Repository][github]. Before
 requesting a feature consider the following:
 
-- Stability is important. UCTask.Worker is used by thousands of other libraries and features that require
+- Stability is important. SimpleSocket is used by thousands of other libraries and features that require
 large breaking changes are unlikely to be accepted
 
 
@@ -48,8 +48,8 @@ large breaking changes are unlikely to be accepted
 
 When submitting a pull request to the [GitHub Repository][github] make sure to do the following:
 
-- Check that new and updated code follows UCTask.Worker's existing code formatting and naming standard
-- Run UCTask.Worker's unit tests to ensure no existing functionality has been affected
+- Check that new and updated code follows SimpleSocket's existing code formatting and naming standard
+- Run SimpleSocket's unit tests to ensure no existing functionality has been affected
 - Write new unit tests to test your changes. All features and fixed bugs must have tests to verify
 they work
 
@@ -58,7 +58,7 @@ Read [GitHub Help][pullrequesthelp] for more details about creating pull request
 
 ## <a name="cla"></a> Contributor License Agreement
 
-By contributing your code to UCTask.Worker you grant Andre Trollip a non-exclusive, irrevocable, worldwide,
+By contributing your code to SimpleSocket you grant Andre Trollip a non-exclusive, irrevocable, worldwide,
 royalty-free, sublicenseable, transferable license under all of Your relevant intellectual property rights
 (including copyright, patent, and any other rights), to use, copy, prepare derivative works of, distribute and
 publicly perform and display the Contributions on any licensing terms, including without limitation:
@@ -81,6 +81,6 @@ INCLUDING, WITHOUT LIMITATION, ANY WARRANTIES OR CONDITIONS OF TITLE, NON-INFRIN
 FOR A PARTICULAR PURPOSE.
 
 
-[github]: https://github.com/urbancoderza/uctask.worker
-[documentation]: https://github.com/urbancoderza/uctask.worker/tree/master/UCTask.Worker/Documentation
+[github]: https://github.com/urbancoderza/simplesocket
+[documentation]: https://github.com/urbancoderza/simplesocket/tree/master/SimpleSocket/Documentation
 [pullrequesthelp]: https://help.github.com/articles/using-pull-requests
