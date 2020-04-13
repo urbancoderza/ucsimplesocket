@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30001.183
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleSocket", "SimpleSocket\SimpleSocket.csproj", "{6A0DEFD9-4C44-4485-AEF4-907A4935173D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A0DEFD9-4C44-4485-AEF4-907A4935173D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A0DEFD9-4C44-4485-AEF4-907A4935173D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A0DEFD9-4C44-4485-AEF4-907A4935173D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A0DEFD9-4C44-4485-AEF4-907A4935173D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E358A96C-0CEB-494A-8158-2F0CC44279CE}
+	EndGlobalSection
+EndGlobal
