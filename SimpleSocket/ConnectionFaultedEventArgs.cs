@@ -5,9 +5,9 @@ namespace SimpleSocket
 {
 	internal sealed class ConnectionFaultedEventArgs : EventArgs
 	{
-		public SocketException Exception { get; }
+		public Exception Exception { get; }
 
-		public ConnectionFaultedEventArgs(SocketException ex)
+		public ConnectionFaultedEventArgs(Exception ex)
 		{
 			Exception = ex;
 		}

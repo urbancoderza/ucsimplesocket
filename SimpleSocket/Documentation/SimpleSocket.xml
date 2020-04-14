@@ -14,11 +14,12 @@
             An event that is raised when the underlying connection goes into a faulted state.
             </summary>
         </member>
-        <member name="M:SimpleSocket.Connection.#ctor(System.Net.Sockets.TcpClient,SimpleSocket.IDatagramEmitter,Microsoft.Extensions.Logging.ILogger{SimpleSocket.Connection})">
+        <member name="M:SimpleSocket.Connection.#ctor(System.Net.Sockets.TcpClient,System.Boolean,SimpleSocket.IDatagramEmitter,Microsoft.Extensions.Logging.ILogger{SimpleSocket.Connection})">
             <summary>
             Initialized a new instance of the <see cref="T:SimpleSocket.Connection"/> class.
             </summary>
             <param name="clientSocket">The <see cref="T:System.Net.Sockets.TcpClient"/> to use as the underlying connection.</param>
+            <param name="ownsTcpClient">A <see cref="T:System.Boolean"/> indicating whether the <paramref name="clientSocket"/> can be disposed when this instance is disposed or not.</param>
             <param name="datagramEmitter">A <see cref="T:SimpleSocket.IDatagramEmitter"/> that is used to emit received datagrams.</param>
             <param name="logger">The <see cref="T:Microsoft.Extensions.Logging.ILogger`1"/> to use for logging information.</param>
         </member>

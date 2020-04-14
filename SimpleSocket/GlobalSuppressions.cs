@@ -7,3 +7,4 @@ using System.Diagnostics.CodeAnalysis;
 
 [assembly: SuppressMessage("Performance", "CA1819:Properties should not return arrays", Justification = "Usage justifies overriding.", Scope = "member", Target = "~P:SimpleSocket.Datagram.Data")]
 [assembly: SuppressMessage("Usage", "CA2213:Disposable fields should be disposed", Justification = "Field is not instantiated by the IDisposable.", Scope = "member", Target = "SimpleSocket.Connection._stream")]
+[assembly: SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>", Scope = "member", Target = "~M:SimpleSocket.Connection.Receive(System.Threading.CancellationToken)")]
