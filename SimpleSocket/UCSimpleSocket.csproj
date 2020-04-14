@@ -17,6 +17,7 @@
 		<PackageReleaseNotes>* Initial creation.</PackageReleaseNotes>
 		<NeutralLanguage>English</NeutralLanguage>
 		<Title>UCSimpleSocket</Title>
+		<AssemblyVersion>1.0.0.0</AssemblyVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
