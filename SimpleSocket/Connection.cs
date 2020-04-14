@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using MsgPack;
 using MsgPack.Serialization;
+using SimpleSocket.Emitters;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -40,13 +41,24 @@ namespace SimpleSocket
 		/// <summary>
 		/// Initialized a new instance of the <see cref="Connection"/> class.
 		/// </summary>
+		/// <param name="emitAction">An <see cref="Action{Connection, Datagram, DateTime}"/> to invoke when a <see cref="Datagram"/> is received.</param>
+		/// <param name="clientSocket">The <see cref="TcpClient"/> to use as the underlying connection.</param>
+		/// <param name="ownsTcpClient">A <see cref="bool"/> indicating whether the <paramref name="clientSocket"/> can be disposed when this instance is disposed or not.</param>
+		/// <param name="logger">The <see cref="ILogger{TCategoryName}"/> to use for logging information.</param>
+		public Connection(Action<Connection, Datagram, DateTime> emitAction, TcpClient clientSocket, bool ownsTcpClient = false, ILogger<Connection> logger = null) : this(clientSocket, ownsTcpClient, new ActionEmitter(emitAction), logger)
+		{
+		}
+
+		/// <summary>
+		/// Initialized a new instance of the <see cref="Connection"/> class.
+		/// </summary>
 		/// <param name="clientSocket">The <see cref="TcpClient"/> to use as the underlying connection.</param>
 		/// <param name="ownsTcpClient">A <see cref="bool"/> indicating whether the <paramref name="clientSocket"/> can be disposed when this instance is disposed or not.</param>
 		/// <param name="datagramEmitter">A <see cref="IDatagramEmitter"/> that is used to emit received datagrams.</param>
 		/// <param name="logger">The <see cref="ILogger{TCategoryName}"/> to use for logging information.</param>
 		public Connection(TcpClient clientSocket, bool ownsTcpClient = false, IDatagramEmitter datagramEmitter = null, ILogger<Connection> logger = null)
 		{
-			_logger = logger;			
+			_logger = logger;
 
 			if (clientSocket == null || !clientSocket.Connected)
 				throw new ArgumentException("The supplied client is null or not connected", nameof(clientSocket));
@@ -104,7 +116,7 @@ namespace SimpleSocket
 				throw new ObjectDisposedException(nameof(Connection));
 
 			if (datagram == null)
-				return;			
+				return;
 
 			var data = datagram.Copy();
 
@@ -185,7 +197,7 @@ namespace SimpleSocket
 				_logger?.LogError(sexc, "Socket fault while receiving data");
 				OnConnectionFaulted(sexc);
 			}
-			catch (TaskCanceledException) 
+			catch (TaskCanceledException)
 			{
 				_logger?.LogInformation("Receiving was stopped");
 			}

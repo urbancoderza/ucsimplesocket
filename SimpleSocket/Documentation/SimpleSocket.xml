@@ -14,6 +14,15 @@
             An event that is raised when the underlying connection goes into a faulted state.
             </summary>
         </member>
+        <member name="M:SimpleSocket.Connection.#ctor(System.Action{SimpleSocket.Connection,SimpleSocket.Datagram,System.DateTime},System.Net.Sockets.TcpClient,System.Boolean,Microsoft.Extensions.Logging.ILogger{SimpleSocket.Connection})">
+            <summary>
+            Initialized a new instance of the <see cref="T:SimpleSocket.Connection"/> class.
+            </summary>
+            <param name="emitAction">An <see cref="T:System.Action`3"/> to invoke when a <see cref="T:SimpleSocket.Datagram"/> is received.</param>
+            <param name="clientSocket">The <see cref="T:System.Net.Sockets.TcpClient"/> to use as the underlying connection.</param>
+            <param name="ownsTcpClient">A <see cref="T:System.Boolean"/> indicating whether the <paramref name="clientSocket"/> can be disposed when this instance is disposed or not.</param>
+            <param name="logger">The <see cref="T:Microsoft.Extensions.Logging.ILogger`1"/> to use for logging information.</param>
+        </member>
         <member name="M:SimpleSocket.Connection.#ctor(System.Net.Sockets.TcpClient,System.Boolean,SimpleSocket.IDatagramEmitter,Microsoft.Extensions.Logging.ILogger{SimpleSocket.Connection})">
             <summary>
             Initialized a new instance of the <see cref="T:SimpleSocket.Connection"/> class.
@@ -86,6 +95,61 @@
             </summary>
             <param name="numTabs">The number of tab characters that each property line should be indented with.</param>
             <returns>A <see cref="T:System.String"/> that represents the current object with the properties indented by <paramref name="numTabs"/> number of tabs."/></returns>
+        </member>
+        <member name="T:SimpleSocket.Emitters.ActionEmitter">
+            <summary>
+            A class representing a datagram emitter that queues the emitted datagrams and can be peeked and dequeued.
+            </summary>
+        </member>
+        <member name="M:SimpleSocket.Emitters.ActionEmitter.#ctor(System.Action{SimpleSocket.Connection,SimpleSocket.Datagram,System.DateTime})">
+            <summary>
+            Initializes a new instance of the <see cref="T:SimpleSocket.Emitters.ActionEmitter"/> class.
+            </summary>
+            <param name="action">The action to invoke when a <see cref="T:SimpleSocket.Datagram"/> is received.</param>
+        </member>
+        <member name="M:SimpleSocket.Emitters.ActionEmitter.DatagramReceived(SimpleSocket.Connection,SimpleSocket.Datagram,System.DateTime)">
+            <summary>
+            Called when a <see cref="T:SimpleSocket.Datagram"/> is received from the remote endpoint.
+            </summary>
+            <param name="source">The <see cref="T:SimpleSocket.Connection"/> which received the datagram.</param>
+            <param name="datagram">The <see cref="T:SimpleSocket.Datagram"/> that was received.</param>
+            <param name="receivedTime">The exact date and time the connection received the datagram.</param>
+        </member>
+        <member name="T:SimpleSocket.Emitters.QueueEmitter">
+            <summary>
+            A class representing a datagram emitter that queues the emitted datagrams and can be peeked and dequeued.
+            </summary>
+        </member>
+        <member name="M:SimpleSocket.Emitters.QueueEmitter.DatagramReceived(SimpleSocket.Connection,SimpleSocket.Datagram,System.DateTime)">
+            <summary>
+            Called when a <see cref="T:SimpleSocket.Datagram"/> is received from the remote endpoint. Enqueues the received <see cref="T:SimpleSocket.Datagram"/>.
+            </summary>
+            <param name="source">The <see cref="T:SimpleSocket.Connection"/> which received the datagram.</param>
+            <param name="datagram">The <see cref="T:SimpleSocket.Datagram"/> that was received.</param>
+            <param name="receivedTime">The exact date and time the connection received the datagram.</param>
+        </member>
+        <member name="M:SimpleSocket.Emitters.QueueEmitter.TryPeek(SimpleSocket.Connection@,SimpleSocket.Datagram@,System.Nullable{System.DateTime}@)">
+            <summary>
+            Tries to return a <see cref="T:SimpleSocket.Datagram"/> from the beginning of the queue without removing it.
+            </summary>
+            <param name="source">When this method returns, <paramref name="source"/> contains the connection that received the <see cref="T:SimpleSocket.Datagram"/>, if a datagram exists.</param>
+            <param name="datagram">When this method returns, <paramref name="datagram"/> contains the <see cref="T:SimpleSocket.Datagram"/>, if it exists.</param>
+            <param name="receivedTime">When this method returns, <paramref name="receivedTime"/> contains the date and time that the <see cref="T:SimpleSocket.Datagram"/> was received, if a datagram exists.</param>
+            <returns><code>true</code> if a <see cref="T:SimpleSocket.Datagram"/> was returned successfully; otherwise, <code>false</code>.</returns>
+        </member>
+        <member name="M:SimpleSocket.Emitters.QueueEmitter.TryDequeue(SimpleSocket.Connection@,SimpleSocket.Datagram@,System.Nullable{System.DateTime}@)">
+            <summary>
+            Tries to return and remove a <see cref="T:SimpleSocket.Datagram"/> from the beginning of the queue.
+            </summary>
+            <param name="source">When this method returns, <paramref name="source"/> contains the connection that received the <see cref="T:SimpleSocket.Datagram"/>, if a datagram exists.</param>
+            <param name="datagram">When this method returns, <paramref name="datagram"/> contains the <see cref="T:SimpleSocket.Datagram"/>, if it exists.</param>
+            <param name="receivedTime">When this method returns, <paramref name="receivedTime"/> contains the date and time that the <see cref="T:SimpleSocket.Datagram"/> was received, if a datagram exists.</param>
+            <returns><code>true</code> if a <see cref="T:SimpleSocket.Datagram"/> was returned successfully; otherwise, <code>false</code>.</returns>
+        </member>
+        <member name="P:SimpleSocket.Emitters.QueueEmitter.Count">
+            <summary>
+            Gets the number of <see cref="T:SimpleSocket.Datagram"/> objects that are available in the queue.
+            </summary>
         </member>
         <member name="T:SimpleSocket.IDatagramEmitter">
             <summary>
