@@ -1,57 +1,58 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
-    <ApplicationIcon>UrbanCoder_Icon.ico</ApplicationIcon>
-    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <Authors>Andre Trollip</Authors>
-    <Company>Urban Robotics (Pty) Ltd</Company>
-    <Description>An extremely simple to use TCP Socket connection library that simplifies datagram framing.</Description>
-    <Copyright>2020 Urban Robotics (Pty) Ltd</Copyright>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://www.urbancoder.io/ucsimplesocket</PackageProjectUrl>
-    <PackageIcon>UrbanCoder_Icon.png</PackageIcon>
-    <RepositoryUrl>https://github.com/urbancoderza/ucsimplesocket</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
-    <PackageTags>tcp ip socket tcpclient datagram</PackageTags>
-    <PackageReleaseNotes>* Initial creation.</PackageReleaseNotes>
-    <NeutralLanguage>English</NeutralLanguage>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<ApplicationIcon>UrbanCoder_Icon.ico</ApplicationIcon>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<Authors>Andre Trollip</Authors>
+		<Company>Urban Robotics (Pty) Ltd</Company>
+		<Description>An extremely simple to use TCP Socket connection library that simplifies datagram framing.</Description>
+		<Copyright>2020 Urban Robotics (Pty) Ltd</Copyright>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://www.urbancoder.io/ucsimplesocket</PackageProjectUrl>
+		<PackageIcon>UrbanCoder_Icon.png</PackageIcon>
+		<RepositoryUrl>https://github.com/urbancoderza/ucsimplesocket</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>tcp ip socket tcpclient datagram</PackageTags>
+		<PackageReleaseNotes>* Initial creation.</PackageReleaseNotes>
+		<NeutralLanguage>English</NeutralLanguage>
+		<Title>UCSimpleSocket</Title>
+	</PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <DocumentationFile>Documentation\UCSimpleSocket.xml</DocumentationFile>
-    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
-    <DebugType>portable</DebugType>
-    <DebugSymbols>true</DebugSymbols>
-    <NoWarn>1701;1702; CA1303; CA1305;</NoWarn>
-  </PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DefineConstants>DEBUG;TRACE</DefineConstants>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<DocumentationFile>Documentation\UCSimpleSocket.xml</DocumentationFile>
+		<GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+		<DebugType>portable</DebugType>
+		<DebugSymbols>true</DebugSymbols>
+		<NoWarn>1701;1702; CA1303; CA1305;</NoWarn>
+	</PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <DocumentationFile>C:\D\SIM\UCSimpleSocket\UCSimpleSocket.xml</DocumentationFile>
-    <NoWarn>1701;1702; CA1303; CA1305;</NoWarn>
-  </PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<DocumentationFile>C:\D\SIM\UCSimpleSocket\UCSimpleSocket.xml</DocumentationFile>
+		<NoWarn>1701;1702; CA1303; CA1305;</NoWarn>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <None Include="UrbanCoder_Icon.png">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-  </ItemGroup>
+	<ItemGroup>
+		<None Include="UrbanCoder_Icon.png">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.6">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="3.1.3" />
-    <PackageReference Include="MsgPack.Cli" Version="1.0.1" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.6">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="3.1.3" />
+		<PackageReference Include="MsgPack.Cli" Version="1.0.1" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
+	<ItemGroup>
+		<Folder Include="Properties\" />
+	</ItemGroup>
 
 </Project>
