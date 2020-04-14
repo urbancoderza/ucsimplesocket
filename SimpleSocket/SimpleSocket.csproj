@@ -31,6 +31,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <DocumentationFile>C:\D\SIM\SimpleSocket\SimpleSocket.xml</DocumentationFile>
+    <NoWarn>1701;1702; CA1303; CA1305;</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
