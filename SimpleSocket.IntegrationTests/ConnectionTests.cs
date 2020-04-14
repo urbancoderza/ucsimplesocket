@@ -68,21 +68,16 @@ namespace UCSimpleSocket.IntegrationTests
 			Assert.IsNull(_emitter.LastDatagram);
 			Assert.IsNull(_emitter.LastConnection);
 
-			var dg = new Datagram
-			{
-				CommandType = 1,
-				Data = new byte[1234]
-			};
-			_rand.NextBytes(dg.Data);
+			var dg = new byte[1234];
+			_rand.NextBytes(dg);
 			_ = _con1.SendDatagramAsync(dg);
 			Thread.Sleep(5000);
 			Assert.AreEqual(_emitter.NumReceived, 1);
 			Assert.IsNotNull(_emitter.LastDatagram);
 			Assert.IsNotNull(_emitter.LastConnection);
-			Assert.AreEqual(_emitter.LastDatagram.CommandType, dg.CommandType);
-			Assert.AreEqual(_emitter.LastDatagram.Data.Length, dg.Data.Length);
-			Assert.AreEqual(_emitter.LastDatagram.Data[0], dg.Data[0]);
-			Assert.AreEqual(_emitter.LastDatagram.Data[^1], dg.Data[^1]);
+			Assert.AreEqual(_emitter.LastDatagram.Length, dg.Length);
+			Assert.AreEqual(_emitter.LastDatagram[0], dg[0]);
+			Assert.AreEqual(_emitter.LastDatagram[^1], dg[^1]);
 			Assert.AreEqual(_emitter.LastConnection, _con2);
 		}
 
@@ -98,21 +93,16 @@ namespace UCSimpleSocket.IntegrationTests
 			Assert.IsNull(_emitter.LastDatagram);
 			Assert.IsNull(_emitter.LastConnection);
 
-			var dg = new Datagram
-			{
-				CommandType = 1,
-				Data = new byte[1234]
-			};
-			_rand.NextBytes(dg.Data);
+			var dg = new byte[1234];
+			_rand.NextBytes(dg);
 			_ = _con2.SendDatagramAsync(dg);
 			Thread.Sleep(5000);
 			Assert.AreEqual(_emitter.NumReceived, 1);
 			Assert.IsNotNull(_emitter.LastDatagram);
 			Assert.IsNotNull(_emitter.LastConnection);
-			Assert.AreEqual(_emitter.LastDatagram.CommandType, dg.CommandType);
-			Assert.AreEqual(_emitter.LastDatagram.Data.Length, dg.Data.Length);
-			Assert.AreEqual(_emitter.LastDatagram.Data[0], dg.Data[0]);
-			Assert.AreEqual(_emitter.LastDatagram.Data[^1], dg.Data[^1]);
+			Assert.AreEqual(_emitter.LastDatagram.Length, dg.Length);
+			Assert.AreEqual(_emitter.LastDatagram[0], dg[0]);
+			Assert.AreEqual(_emitter.LastDatagram[^1], dg[^1]);
 			Assert.AreEqual(_emitter.LastConnection, _con1);
 		}
 
@@ -121,12 +111,8 @@ namespace UCSimpleSocket.IntegrationTests
 		{
 			_con1.Dispose();
 
-			var dg = new Datagram
-			{
-				CommandType = 1,
-				Data = new byte[1234]
-			};
-			_rand.NextBytes(dg.Data);
+			var dg = new byte[1234];
+			_rand.NextBytes(dg);
 
 			var task = _con2.SendDatagramAsync(dg);
 			Assert.IsTrue(_con2.IsFaulted);
@@ -136,15 +122,11 @@ namespace UCSimpleSocket.IntegrationTests
 		[TestMethod]
 		public void MultipleSends()
 		{
-			var dgs = new Datagram[50];
+			var dgs = new List<byte[]>(50);
 			for (var i = 0; i < 50; i++)
 			{
-				dgs[i] = new Datagram
-				{
-					CommandType = (byte)i,
-					Data = new byte[i + 10]
-				};
-				_rand.NextBytes(dgs[i].Data);
+				dgs.Add(new byte[i + 10]);
+				_rand.NextBytes(dgs[i]);
 			}
 
 			for (var i = 0; i < 50; i++)
@@ -159,10 +141,9 @@ namespace UCSimpleSocket.IntegrationTests
 
 				Assert.IsNotNull(info.Item1);
 				Assert.IsNotNull(info.Item2);
-				Assert.AreEqual(info.Item1.CommandType, dgs[i].CommandType);
-				Assert.AreEqual(info.Item1.Data.Length, dgs[i].Data.Length);
-				Assert.AreEqual(info.Item1.Data[0], dgs[i].Data[0]);
-				Assert.AreEqual(info.Item1.Data[^1], dgs[i].Data[^1]);
+				Assert.AreEqual(info.Item1.Length, dgs[i].Length);
+				Assert.AreEqual(info.Item1[0], dgs[i][0]);
+				Assert.AreEqual(info.Item1[^1], dgs[i][^1]);
 				Assert.AreEqual(info.Item2, _con1);
 			}
 		}

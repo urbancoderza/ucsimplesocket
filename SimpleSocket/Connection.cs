@@ -45,7 +45,7 @@ namespace UCSimpleSocket
 		/// <param name="clientSocket">The <see cref="TcpClient"/> to use as the underlying connection.</param>
 		/// <param name="ownsTcpClient">A <see cref="bool"/> indicating whether the <paramref name="clientSocket"/> can be disposed when this instance is disposed or not.</param>
 		/// <param name="logger">The <see cref="ILogger{TCategoryName}"/> to use for logging information.</param>
-		public Connection(Action<Connection, Datagram, DateTime> emitAction, TcpClient clientSocket, bool ownsTcpClient = false, ILogger<Connection> logger = null) : this(clientSocket, ownsTcpClient, new ActionEmitter(emitAction), logger)
+		public Connection(Action<Connection, byte[], DateTime> emitAction, TcpClient clientSocket, bool ownsTcpClient = false, ILogger<Connection> logger = null) : this(clientSocket, ownsTcpClient, new ActionEmitter(emitAction), logger)
 		{
 		}
 
@@ -110,7 +110,7 @@ namespace UCSimpleSocket
 		/// Sends a datagram to the remote host.
 		/// </summary>
 		/// <param name="datagram">The <see cref="Datagram"/> to send.</param>
-		public async Task SendDatagramAsync(Datagram datagram)
+		public async Task SendDatagramAsync(byte[] datagram)
 		{
 			if (_disposed == 1)
 				throw new ObjectDisposedException(nameof(Connection));
@@ -118,14 +118,15 @@ namespace UCSimpleSocket
 			if (datagram == null)
 				return;
 
-			var data = datagram.Copy();
+			var data = new byte[datagram.Length];
+			datagram.CopyTo(data, 0);
 
 			try
 			{
 				if (IsFaulted)
 					return;
 
-				_logger?.LogInformation("Sending datagram:{0}{1}", Environment.NewLine, datagram.ToString(1));
+				_logger?.LogInformation("Sending datagram:{0}{1}", Environment.NewLine, datagram.Length);
 				await _packer.PackAsync(data, _serialContext).ConfigureAwait(false);
 			}
 			catch (TargetInvocationException tiex)
@@ -166,7 +167,7 @@ namespace UCSimpleSocket
 				while (_disposed == 0 && !IsFaulted && !cancelToken.IsCancellationRequested)
 				{
 					_ = await _unpacker.ReadAsync(cancelToken).ConfigureAwait(false);
-					var nextMsg = await _unpacker.UnpackAsync<Datagram>(cancelToken).ConfigureAwait(false);
+					var nextMsg = await _unpacker.UnpackAsync<byte[]>(cancelToken).ConfigureAwait(false);
 
 					var receivedTime = DateTime.Now;
 					if (nextMsg == null)

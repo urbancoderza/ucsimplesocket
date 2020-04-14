@@ -17,14 +17,15 @@
 		<PackageReleaseNotes>* Initial creation.</PackageReleaseNotes>
 		<NeutralLanguage>English</NeutralLanguage>
 		<Title>UCSimpleSocket</Title>
-		<AssemblyVersion>1.0.0.0</AssemblyVersion>
+		<AssemblyVersion>2.0.0.0</AssemblyVersion>
+		<FileVersion>2.0.0.0</FileVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
 		<DefineConstants>DEBUG;TRACE</DefineConstants>
 		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
 		<DocumentationFile>Documentation\UCSimpleSocket.xml</DocumentationFile>
-		<GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+		<GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
 		<DebugType>portable</DebugType>
 		<DebugSymbols>true</DebugSymbols>
 		<NoWarn>1701;1702; CA1303; CA1305;</NoWarn>
@@ -32,9 +33,13 @@
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
 		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-		<DocumentationFile>C:\D\SIM\UCSimpleSocket\UCSimpleSocket.xml</DocumentationFile>
+		<DocumentationFile></DocumentationFile>
 		<NoWarn>1701;1702; CA1303; CA1305;</NoWarn>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Datagram.cs" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<None Include="UrbanCoder_Icon.png">
@@ -50,10 +55,6 @@
 		</PackageReference>
 		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="3.1.3" />
 		<PackageReference Include="MsgPack.Cli" Version="1.0.1" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<Folder Include="Properties\" />
 	</ItemGroup>
 
 </Project>
