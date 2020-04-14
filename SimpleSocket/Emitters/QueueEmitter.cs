@@ -11,10 +11,10 @@ namespace UCSimpleSocket.Emitters
 		private readonly ConcurrentQueue<Tuple<Connection, byte[], DateTime>> _items = new ConcurrentQueue<Tuple<Connection, byte[], DateTime>>();
 
 		/// <summary>
-		/// Called when a <see cref="Datagram"/> is received from the remote endpoint. Enqueues the received <see cref="Datagram"/>.
+		/// Called when a datagram is received from the remote endpoint. Enqueues the received datagram.
 		/// </summary>
 		/// <param name="source">The <see cref="Connection"/> which received the datagram.</param>
-		/// <param name="datagram">The <see cref="Datagram"/> that was received.</param>
+		/// <param name="datagram">The datagram that was received.</param>
 		/// <param name="receivedTime">The exact date and time the connection received the datagram.</param>
 		public void DatagramReceived(Connection source, byte[] datagram, DateTime receivedTime)
 		{
@@ -22,12 +22,12 @@ namespace UCSimpleSocket.Emitters
 		}
 
 		/// <summary>
-		/// Tries to return a <see cref="Datagram"/> from the beginning of the queue without removing it.
+		/// Tries to return a datagram from the beginning of the queue without removing it.
 		/// </summary>
-		/// <param name="source">When this method returns, <paramref name="source"/> contains the connection that received the <see cref="Datagram"/>, if a datagram exists.</param>
-		/// <param name="datagram">When this method returns, <paramref name="datagram"/> contains the <see cref="Datagram"/>, if it exists.</param>
-		/// <param name="receivedTime">When this method returns, <paramref name="receivedTime"/> contains the date and time that the <see cref="Datagram"/> was received, if a datagram exists.</param>
-		/// <returns><code>true</code> if a <see cref="Datagram"/> was returned successfully; otherwise, <code>false</code>.</returns>
+		/// <param name="source">When this method returns, <paramref name="source"/> contains the connection that received the datagram, if a datagram exists.</param>
+		/// <param name="datagram">When this method returns, <paramref name="datagram"/> contains the datagram, if it exists.</param>
+		/// <param name="receivedTime">When this method returns, <paramref name="receivedTime"/> contains the date and time that the datagram was received, if a datagram exists.</param>
+		/// <returns><code>true</code> if a datagram was returned successfully; otherwise, <code>false</code>.</returns>
 		public bool TryPeek(out Connection source, out byte[] datagram, out DateTime? receivedTime)
 		{
 			source = null;
@@ -46,12 +46,12 @@ namespace UCSimpleSocket.Emitters
 		}
 
 		/// <summary>
-		/// Tries to return and remove a <see cref="Datagram"/> from the beginning of the queue.
+		/// Tries to return and remove a datagram from the beginning of the queue.
 		/// </summary>
-		/// <param name="source">When this method returns, <paramref name="source"/> contains the connection that received the <see cref="Datagram"/>, if a datagram exists.</param>
-		/// <param name="datagram">When this method returns, <paramref name="datagram"/> contains the <see cref="Datagram"/>, if it exists.</param>
-		/// <param name="receivedTime">When this method returns, <paramref name="receivedTime"/> contains the date and time that the <see cref="Datagram"/> was received, if a datagram exists.</param>
-		/// <returns><code>true</code> if a <see cref="Datagram"/> was returned successfully; otherwise, <code>false</code>.</returns>
+		/// <param name="source">When this method returns, <paramref name="source"/> contains the connection that received the datagram, if a datagram exists.</param>
+		/// <param name="datagram">When this method returns, <paramref name="datagram"/> contains the datagram, if it exists.</param>
+		/// <param name="receivedTime">When this method returns, <paramref name="receivedTime"/> contains the date and time that the datagram was received, if a datagram exists.</param>
+		/// <returns><code>true</code> if a datagram was returned successfully; otherwise, <code>false</code>.</returns>
 		public bool TryDequeue(out Connection source, out byte[] datagram, out DateTime? receivedTime)
 		{
 			source = null;
@@ -70,7 +70,7 @@ namespace UCSimpleSocket.Emitters
 		}
 
 		/// <summary>
-		/// Gets the number of <see cref="Datagram"/> objects that are available in the queue.
+		/// Gets the number of datagram objects that are available in the queue.
 		/// </summary>
 		public int Count => _items.Count;
 	}

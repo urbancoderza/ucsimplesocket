@@ -41,7 +41,7 @@ namespace UCSimpleSocket
 		/// <summary>
 		/// Initialized a new instance of the <see cref="Connection"/> class.
 		/// </summary>
-		/// <param name="emitAction">An <see cref="Action{Connection, Datagram, DateTime}"/> to invoke when a <see cref="Datagram"/> is received.</param>
+		/// <param name="emitAction">An <see cref="Action{Connection, byte[], DateTime}"/> to invoke when a datagram is received.</param>
 		/// <param name="clientSocket">The <see cref="TcpClient"/> to use as the underlying connection.</param>
 		/// <param name="ownsTcpClient">A <see cref="bool"/> indicating whether the <paramref name="clientSocket"/> can be disposed when this instance is disposed or not.</param>
 		/// <param name="logger">The <see cref="ILogger{TCategoryName}"/> to use for logging information.</param>
@@ -109,7 +109,7 @@ namespace UCSimpleSocket
 		/// <summary>
 		/// Sends a datagram to the remote host.
 		/// </summary>
-		/// <param name="datagram">The <see cref="Datagram"/> to send.</param>
+		/// <param name="datagram">The datagram to send.</param>
 		public async Task SendDatagramAsync(byte[] datagram)
 		{
 			if (_disposed == 1)
