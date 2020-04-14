@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Concurrent;
 
-namespace SimpleSocket.Emitters
+namespace UCSimpleSocket.Emitters
 {
 	/// <summary>
 	/// A class representing a datagram emitter that queues the emitted datagrams and can be peeked and dequeued.

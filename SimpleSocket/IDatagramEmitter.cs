@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SimpleSocket
+namespace UCSimpleSocket
 {
 	/// <summary>
 	/// An interface that rerpesents a datagram emitter to use for received datagrams.

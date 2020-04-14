@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Text;
 
-namespace SimpleSocket
+namespace UCSimpleSocket
 {
 	/// <summary>
 	/// A class representing a datagram that was received by a <see cref="Connection"/>.

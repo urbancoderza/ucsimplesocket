@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace SimpleSocket.IntegrationTests
+namespace UCSimpleSocket.IntegrationTests
 {
 	internal class TestEmitter : IDatagramEmitter
 	{

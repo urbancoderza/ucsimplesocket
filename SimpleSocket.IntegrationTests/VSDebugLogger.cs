@@ -2,7 +2,7 @@
 using System;
 using System.Diagnostics;
 
-namespace SimpleSocket.IntegrationTests
+namespace UCSimpleSocket.IntegrationTests
 {
     public class ConsoleLoggerFactory : ILoggerFactory
     {

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
@@ -9,9 +9,9 @@
     <Description>An extremely simple to use TCP Socket connection library that simplifies datagram framing.</Description>
     <Copyright>2020 Urban Robotics (Pty) Ltd</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://www.urbancoder.io/simplesocket</PackageProjectUrl>
+    <PackageProjectUrl>https://www.urbancoder.io/ucsimplesocket</PackageProjectUrl>
     <PackageIcon>UrbanCoder_Icon.png</PackageIcon>
-    <RepositoryUrl>https://github.com/urbancoderza/simplesocket</RepositoryUrl>
+    <RepositoryUrl>https://github.com/urbancoderza/ucsimplesocket</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>tcp ip socket tcpclient datagram</PackageTags>
     <PackageReleaseNotes>* Initial creation.</PackageReleaseNotes>
@@ -21,7 +21,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <DocumentationFile>Documentation\SimpleSocket.xml</DocumentationFile>
+    <DocumentationFile>Documentation\UCSimpleSocket.xml</DocumentationFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <DebugType>portable</DebugType>
     <DebugSymbols>true</DebugSymbols>
@@ -30,7 +30,7 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <DocumentationFile>C:\D\SIM\SimpleSocket\SimpleSocket.xml</DocumentationFile>
+    <DocumentationFile>C:\D\SIM\UCSimpleSocket\UCSimpleSocket.xml</DocumentationFile>
     <NoWarn>1701;1702; CA1303; CA1305;</NoWarn>
   </PropertyGroup>
 

@@ -1,9 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SimpleSocket.Emitters;
+using UCSimpleSocket.Emitters;
 using System;
 using System.Threading;
 
-namespace SimpleSocket.UnitTests.Emitters
+namespace UCSimpleSocket.UnitTests.Emitters
 {
 	[TestClass]
 	public class ActionEmitterTests

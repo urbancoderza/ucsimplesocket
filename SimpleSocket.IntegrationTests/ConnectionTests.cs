@@ -7,9 +7,9 @@ using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
-using static SimpleSocket.IntegrationTests.ConsoleLoggerFactory;
+using static UCSimpleSocket.IntegrationTests.ConsoleLoggerFactory;
 
-namespace SimpleSocket.IntegrationTests
+namespace UCSimpleSocket.IntegrationTests
 {
 	[TestClass]
 	public class ConnectionTests

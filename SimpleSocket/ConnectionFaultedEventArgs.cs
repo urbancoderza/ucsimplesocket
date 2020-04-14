@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net.Sockets;
 
-namespace SimpleSocket
+namespace UCSimpleSocket
 {
 	internal sealed class ConnectionFaultedEventArgs : EventArgs
 	{

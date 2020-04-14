@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace SimpleSocket.UnitTests
+namespace UCSimpleSocket.UnitTests
 {
 	[TestClass]
 	public class DatagramTests

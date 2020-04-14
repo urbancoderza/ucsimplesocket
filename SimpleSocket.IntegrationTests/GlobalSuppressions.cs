@@ -5,4 +5,4 @@
 
 using System.Diagnostics.CodeAnalysis;
 
-[assembly: SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "<Pending>", Scope = "member", Target = "~M:SimpleSocket.IntegrationTests.ConsoleLoggerFactory.Create(System.String)~Microsoft.Extensions.Logging.ILogger")]
+[assembly: SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "<Pending>", Scope = "member", Target = "~M:UCSimpleSocket.IntegrationTests.ConsoleLoggerFactory.Create(System.String)~Microsoft.Extensions.Logging.ILogger")]

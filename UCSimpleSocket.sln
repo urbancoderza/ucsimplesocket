@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30001.183
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleSocket", "SimpleSocket\SimpleSocket.csproj", "{6A0DEFD9-4C44-4485-AEF4-907A4935173D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UCSimpleSocket", "SimpleSocket\UCSimpleSocket.csproj", "{6A0DEFD9-4C44-4485-AEF4-907A4935173D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleSocket.UnitTests", "SimpleSocket.UnitTests\SimpleSocket.UnitTests.csproj", "{5C1A9110-245A-4773-9296-66E1A207BCF2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UCSimpleSocket.UnitTests", "SimpleSocket.UnitTests\UCSimpleSocket.UnitTests.csproj", "{5C1A9110-245A-4773-9296-66E1A207BCF2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleSocket.IntegrationTests", "SimpleSocket.IntegrationTests\SimpleSocket.IntegrationTests.csproj", "{0568C92C-EC01-4A76-A350-24AA330660F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UCSimpleSocket.IntegrationTests", "SimpleSocket.IntegrationTests\UCSimpleSocket.IntegrationTests.csproj", "{0568C92C-EC01-4A76-A350-24AA330660F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

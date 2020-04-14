@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 
-namespace SimpleSocket
+namespace UCSimpleSocket
 {
 	public sealed partial class Connection
 	{

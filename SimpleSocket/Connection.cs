@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using MsgPack;
 using MsgPack.Serialization;
-using SimpleSocket.Emitters;
+using UCSimpleSocket.Emitters;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -12,7 +12,7 @@ using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace SimpleSocket
+namespace UCSimpleSocket
 {
 	/// <summary>
 	/// A class representing a TCP connection between a local IP endpoint and a remote IP endpoint.
